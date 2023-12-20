@@ -1,0 +1,55 @@
+﻿<Page x:Class="Labaratorka01d01.Pages.SearchPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Labaratorka01d01.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SearchPage">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Style.xaml" />
+                <ResourceDictionary Source="../StyleColors.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="160"/>
+        </Grid.ColumnDefinitions>
+            
+        <ListView x:Name="UchetV">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding ID}"/>
+                            <TextBlock Text="{Binding NumbChet}"/>
+                            <TextBlock Text="{Binding MothPay}"/>
+                            <TextBlock Text="{Binding Rate}"/>
+                            <TextBlock Text="{Binding Kw}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+            
+        <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center">
+            <TextBox Style="{StaticResource TextBlock}" Text="Поиск по"/>
+            <ComboBox Name="TypeSearchComboBox" Width="150" Margin="5" Height="30" SelectionChanged="TypeSearchComboBox_SelectionChanged"/>
+            <TextBox x:Name="FirstTextBlok" Style="{StaticResource TextBlock}" Text="" />
+            <TextBox x:Name="FirstTextBox" Style="{StaticResource TextBox}" Text="" />
+            <TextBox x:Name="SecondTextBlok" Style="{StaticResource TextBlock}" Text="" />
+            <TextBox x:Name="SecondTextBox" Style="{StaticResource TextBox}" Text="" />
+            <TextBox x:Name="ThirdTextBlok" Style="{StaticResource TextBlock}" Text="" />
+            <TextBox x:Name="ThirdTextBox" Style="{StaticResource TextBox}" Text="" />
+            <Button x:Name="SearchBtn" Content="Поиск" Style="{StaticResource Button}" Click="SearchBtn_Click"/>
+            <Button x:Name="RefrBtn" Content="Сбросить" Style="{StaticResource Button}" Click="RefrBtn_Click"/>
+            <Button x:Name="BackBtn" Content="Назад" Style="{StaticResource Button}" Click="BackBtn_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

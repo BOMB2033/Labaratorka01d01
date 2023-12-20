@@ -1,0 +1,39 @@
+﻿<Page x:Class="Labaratorka01d01.Pages.UchetPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Labaratorka01d01.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="UchetPage" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <ListView x:Name="UchetV">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding ID}"/>
+                            <TextBlock Text="{Binding Clients.FullName}"/>
+                            <TextBlock Text="{Binding MothPay}"/>
+                            <TextBlock Text="{Binding Rate}"/>
+                            <TextBlock Text="{Binding Kw}"/>
+                        </StackPanel>
+                        <Button x:Name="EditBtn" Content="Изменить" Click="EditBtn_Click" Margin="5"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Button x:Name="AddBtn" Content="Добавить" Margin="5" Height="30" Width="150" Click="AddBtn_Click"/>
+            <Button x:Name="DelBtn" Content="Удалить" Margin="5" Height="30" Width="150" Click="DelBtn_Click"/>
+            <Button x:Name="RefrBtn" Content="Обновить" Margin="5" Height="30" Width="150" Click="RefrBtn_Click"/>
+            <Button x:Name="BackBtn" Content="Назад" Margin="5" Height="30" Width="150" Click="BackBtn_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>
